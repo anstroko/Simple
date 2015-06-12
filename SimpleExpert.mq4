@@ -94,7 +94,7 @@ if ((Hours>Hour())&&(Minutes>Minute())&& (OpenOrder==true)){ OrderTTTT="Назначен
 RefreshRates();
 if ((Hours==Hour())&&(Minutes==Minute())&&(OpenOrder==false))
 {
-   if ((MoreOrLess==true)&&(Ask>NormalizeDouble(Filter,5))){
+   if ((MoreOrLess==true)&&(Bid>NormalizeDouble(Filter,5))){
    Print("!");
       if ((BuyOrSell==true)&&(OrderTyp==0)){ if (IsTradeAllowed()) { if(    OrderSend(Symbol(),OP_BUY,Lot,Ask,3*k,NULL,NULL,NULL,Magic_Number,0,Blue) < 0) 
       { 
@@ -129,7 +129,7 @@ if ((Hours==Hour())&&(Minutes==Minute())&&(OpenOrder==false))
                                        }
                                        
                                        
-   if ((MoreOrLess==false)&&(Ask<NormalizeDouble(Filter,5))){
+   if ((MoreOrLess==false)&&(Bid<NormalizeDouble(Filter,5))){
       if ((BuyOrSell==true)&&(OrderTyp==0)){ if (IsTradeAllowed()) { if(    OrderSend(Symbol(),OP_BUY,Lot,Ask,3*k,NULL,NULL,NULL,Magic_Number,0,Blue) < 0) 
       { 
         Alert("Ошибка открытия позиции № ", GetLastError());
