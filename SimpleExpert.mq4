@@ -98,7 +98,11 @@ if ((Hours==Hour())&&(Minutes==Minute())&&(OpenOrder==false))
 {
    if ((MoreOrLess==true)&&(Bid>NormalizeDouble(Filter,5))){
   
+<<<<<<< HEAD
       if ((BuyOrSell==true)&&(OrderTyp==0)){ if (IsTradeAllowed()) { if(    OrderSend(Symbol(),OP_BUY,Lot,Ask,3*k,NULL,NULL,Comments,Magic_Number,0,Blue) < 0) 
+=======
+      if ((BuyOrSell==true)&&(OrderTyp==0)){ if (IsTradeAllowed()) { if(    OrderSend(Symbol(),OP_BUY,Lot,Ask,3*k,NULL,NULL,NULL,Magic_Number,0,Blue) < 0) 
+>>>>>>> origin/master
       { 
         Alert("Ошибка открытия позиции № ", GetLastError());
       }
@@ -138,7 +142,11 @@ if ((Hours==Hour())&&(Minutes==Minute())&&(OpenOrder==false))
                                        
                                        
    if ((MoreOrLess==false)&&(Bid<NormalizeDouble(Filter,5))){
+<<<<<<< HEAD
       if ((BuyOrSell==true)&&(OrderTyp==0)){ if (IsTradeAllowed()) { if(    OrderSend(Symbol(),OP_BUY,Lot,Ask,3*k,NULL,NULL,Comments,Magic_Number,0,Blue) < 0) 
+=======
+      if ((BuyOrSell==true)&&(OrderTyp==0)){ if (IsTradeAllowed()) { if(    OrderSend(Symbol(),OP_BUY,Lot,Ask,3*k,NULL,NULL,NULL,Magic_Number,0,Blue) < 0) 
+>>>>>>> origin/master
       { 
         Alert("Ошибка открытия позиции № ", GetLastError());
       }
