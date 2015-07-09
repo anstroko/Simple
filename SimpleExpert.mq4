@@ -53,6 +53,7 @@ int init(){
      if (Digits==3){kk=1000;}
        if (Digits==4){kk=10000;}
           if (Digits==5){kk=10000;}
+          Koef=1;
    StoimPunkt();
    
    
@@ -100,7 +101,20 @@ ObjectCreate("label_object5",OBJ_LABEL,0,0,0);
 ObjectSet("label_object5",OBJPROP_CORNER,4);
 ObjectSet("label_object5",OBJPROP_XDISTANCE,10);
 ObjectSet("label_object5",OBJPROP_YDISTANCE,90);
-ObjectSetText("label_object5","Стоимость пункта "+Symbol()+"="+DoubleToString(S,2)+"; Риск в сделке "+DoubleToString(RiskSumm,2)+"("+RiskOnTreid+"%)",18,"Arial",Green);
+ObjectSetText("label_object5","SL= "+SL_points+" Cancell= "+CancellPrice,18,"Arial",Green);
+
+ObjectCreate("label_object6",OBJ_LABEL,0,0,0);
+ObjectSet("label_object6",OBJPROP_CORNER,4);
+ObjectSet("label_object6",OBJPROP_XDISTANCE,10);
+ObjectSet("label_object6",OBJPROP_YDISTANCE,110);
+ObjectSetText("label_object6","MM= "+MM+" Lot= "+Lot*Koef,18,"Arial",Green);
+
+
+ObjectCreate("label_object7",OBJ_LABEL,0,0,0);
+ObjectSet("label_object7",OBJPROP_CORNER,4);
+ObjectSet("label_object7",OBJPROP_XDISTANCE,10);
+ObjectSet("label_object7",OBJPROP_YDISTANCE,130);
+ObjectSetText("label_object7","Стоимость пункта "+Symbol()+"="+DoubleToString(S,2)+"; Риск в сделке "+DoubleToString(RiskSumm,2)+"("+RiskOnTreid+"%)",18,"Arial",Green);
 
  OpenOrder=false;
    for(int inn=0;inn<OrdersTotal();inn++)
@@ -259,7 +273,7 @@ Koef=1;
 while (RiskSumm>CurSum)
 {CurSum=(Bid-SL_points)*kk*Koef*Lot*S*10;
 Koef=Koef+0.1;
-Print(Koef);
+
 }
 
 
@@ -274,7 +288,7 @@ Koef=1;
 while (RiskSumm>CurSum)
 {CurSum=(SL_points-Bid)*kk*Koef*Lot*S*10;
 Koef=Koef+0.1;
-Print(Koef);
+
 }
 
 
